@@ -26,7 +26,6 @@ browser: json
 
 node: init
 	cat src/node_header.js src/client.js src/server.js src/node_footer.js > lib/barrister.node.js
-	jshint lib/barrister.node.js
 	
 barrister:
 	barrister -j test/sample.json test/sample.idl
