@@ -23,6 +23,12 @@ var httpClient = function(endpoint, opts) {
     return new Client(httpTransport, opts);
 };
 
+var fs = require("fs");
+
+Client.prototype.loadContractFile = function(filename) {
+  this.contract = new Contract(JSON.parse(fs.readFileSync(filename)), this.coerce);
+};
+
 // Export blessed functions to the package
 exports.httpClient = httpClient;
 exports.inprocClient = inprocClient;
